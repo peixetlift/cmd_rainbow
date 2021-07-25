@@ -3,12 +3,14 @@ set /A a=41
 
 mode con >> ModeTemp.txt
 
-set /p speed="Select speed : [1/2]"
+
 for /f "tokens=*" %%a in ('perl parse.pl') do (
     set cols=%%a
 )
 set /A cols-=1
 del ModeTemp.txt
+
+set /p speed="Select speed : [1/2]"
 
 :colorLoop
 for /L %%n in (1 %speed% %cols%) do (
